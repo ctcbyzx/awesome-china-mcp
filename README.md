@@ -40,9 +40,9 @@ Point any MCP client at these servers — an [OpenClaw Launch](https://openclawl
 
 > ⚠️ **BYO credentials.** Most Chinese-platform APIs (微信 / 支付宝 / 钉钉 / 电商 / 券商) require your own registered app credentials and, for the big ones, enterprise (营业执照) verification. These servers connect the API — you supply the keys.
 
-> 🧩 **Also in here:** a [gap map](#gap-map) of 91 Chinese services that have an official API but **no MCP server yet** — pick one and build it.
+> 🧩 **Also in here:** a [gap map](#gap-map) of 78 Chinese services that have an official API but **no MCP server yet** — pick one and build it.
 
-> 🗓️ Links, stars & archive status checked **2026-10-10** · catalog updated **2026-10-10** · gap map last re-swept **2026-09-02**.
+> 🗓️ Links, stars & archive status checked **2026-10-10** · catalog updated **2026-10-10** · gap map last re-swept **2026-10-10**.
 
 ### Legend
 `🏢` official / first-party · `👥` community · `⭐` GitHub stars (approx, drift over time) · `🌐` hosted / docs link (not a repo)
@@ -143,9 +143,13 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 | 氚云 H3 Yun | 🏢 official remote MCP — `https://www.h3yun.com/v1/agent/mcp` ([docs](https://help.h3yun.com/280976225/)) | low-code apps: apps, forms, schemas, records, todos; personal access token inherits your company role, public cloud only |
 | 墨刀 Modao | 🏢 official remote MCP — `https://modao.cc/agent-py/ai/mcp` ([docs](https://modao.cc/feature/ai-mcp.html)) | generate prototypes, React apps and PRDs; OAuth or personal-space token, calls spend your 墨刀 AI quota |
 | Pixso | 🏢 official remote MCP — `https://pixso.cn/mcp` ([docs](https://pixso.cn/developer/zh/mcp/remote-mcp.html)) · stdio proxy `@pixso/pixso-stdio-mcp` | design-to-code: layer DSL, variants, design variables, styles (read-only); personal access token in a `Token` header |
+| 金数据 Jinshuju | 🏢 official remote MCP — `https://jinshuju.net/mcp` (OAuth; [docs](https://open.jinshuju.net/mcp/)) | forms and entries — ⚠️ tools can create, edit and delete forms and entries |
+| 百度网盘 Baidu Netdisk | 🏢 [`baidu-netdisk/mcp`](https://github.com/baidu-netdisk/mcp) ⭐137 | list, search, upload, share — ⚠️ the README puts `access_token` in the SSE URL, and upload reads any file the process can read |
+| 印象笔记 Yinxiang | 👥 [`yinxiang-team/YXBJ-MCP`](https://github.com/yinxiang-team/YXBJ-MCP) ⭐15 | search / read / create notes via Developer Token; we could not confirm the org is first-party, and it logs note contents |
+| flomo 浮墨 | 👥 [`chatmcp/mcp-server-flomo`](https://github.com/chatmcp/mcp-server-flomo) ⭐58 | write notes to flomo (write-only); set `FLOMO_API_URL` yourself — in hosted REST mode an unset URL is taken from the request |
 | wolai 我来 | 👥 [`LittlePeter52012/wolai-mcp`](https://github.com/LittlePeter52012/wolai-mcp) ⭐9 | read / write a wolai knowledge base |
 | 石墨文档 Shimo | 👥 [`kanyun-inc/rush-shimo-cli`](https://github.com/kanyun-inc/rush-shimo-cli) | read Shimo docs — CLI + SDK + MCP |
-| 企业微信 WeCom (群机器人) | 👥 [`gotoolkits/mcp-wecombot-server`](https://github.com/gotoolkits/mcp-wecombot-server) ⭐37 | send text/markdown/image/news to a WeCom group robot webhook |
+| 企业微信 WeCom (群机器人) | 👥 [`gotoolkits/mcp-wecombot-server`](https://github.com/gotoolkits/mcp-wecombot-server) ⭐37 · [`loonghao/wecom-bot-mcp-server`](https://github.com/loonghao/wecom-bot-mcp-server) ⭐104 | send text/markdown/image/news to a WeCom group robot webhook · loonghao adds files/images; ⚠️ a failed send logs the full webhook URL (the secret), and image URLs are fetched from any host |
 | 企业微信 WeCom (API 连接器) | — still none · ops-bot: [`opsre/ZenOps`](https://github.com/opsre/ZenOps) ⭐165 | no server covers the WeCom app API (contacts, approvals, messages to members). ZenOps queries ops resources via 钉钉/飞书/企微 bots — not an API connector. PR one if you build it |
 
 ## 💻 开发工具 · DevTools
@@ -155,6 +159,8 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 | Gitee | 🏢 [`oschina/mcp-gitee`](https://github.com/oschina/mcp-gitee) ⭐66 | repos, issues, PRs |
 | Apifox | 🏢 [official MCP](https://docs.apifox.com/apifox-mcp-server) | API specs into agents |
 | GitCode | 👥 [`Trenza1ore/GitCode-API`](https://github.com/Trenza1ore/GitCode-API) ⭐7 | GitCode REST SDK + CLI shipping MCP / agent tool definitions |
+| TAPD | [`tapd_mcp/mcp-server-tapd`](https://cnb.cool/tapd_mcp/mcp-server-tapd) (cnb.cool, PyPI `mcp-server-tapd`) | stories, bugs, tasks, iterations, comments; Tencent-hosted but published by an individual, so untagged — ⚠️ the optional HTTP mode binds `0.0.0.0` with no auth, and upload tools read any absolute path; no LICENSE |
+| 融云 RongCloud | 🏢 [`rongcloud/rongcloud-server-mcp-python`](https://github.com/rongcloud/rongcloud-server-mcp-python) ⭐1 | IM server API: users, groups, messages — ⚠️ issues user tokens and dismisses groups without confirmation; no push since 2025-06 |
 | 百度 AI Guard | 🏢 [`baidu/mcp-server-baidu-ai-guard`](https://github.com/baidu/mcp-server-baidu-ai-guard) | content moderation |
 | HarmonyOS | 👥 [`XixianLiang/HarmonyOS-mcp-server`](https://github.com/XixianLiang/HarmonyOS-mcp-server) | HarmonyOS dev/test |
 | LeetCode | 👥 [`jinzcdev/leetcode-mcp-server`](https://github.com/jinzcdev/leetcode-mcp-server) | problems, submissions |
@@ -177,6 +183,7 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 | Domain | Server | Notes |
 |---|---|---|
 | 中国法律法规 | 👥 [`Yuhamixli/Law-Crawler-RPA-RAG-MCP`](https://github.com/Yuhamixli/Law-Crawler-RPA-RAG-MCP) ⭐32 | crawl 中国法律法规 + RAG Q&A |
+| 华宇元典 Yuandian | 🏢 official remote MCP ×5 — `https://open.chineselaw.com/mcp/{law,case,company,securities,hallucination}/stream` ([config](https://open.chineselaw.com/mcp-config)) | statutes, cases, company and securities law, plus a legal hallucination check; OAuth |
 | 法规检索 / 案例 | 👥 [`moyupeng0422/legal-tools`](https://github.com/moyupeng0422/legal-tools) ⭐32 | Chinese-law MCP + Skills: statutes, cases |
 
 ## 📚 学术 · Academic & Research
@@ -228,6 +235,11 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 |---|---|---|
 | 中国数据核验 | 👥 [`CCCpan/Gebaini`](https://github.com/CCCpan/Gebaini) ⭐165 | ID / 企业 / 车辆 / OCR / risk |
 | 工商企业大数据 | 👥 [`handaas/mcp-server`](https://github.com/handaas/mcp-server) ⭐12 · [`handaas/enterprise-mcp-server`](https://github.com/handaas/enterprise-mcp-server) | 工商信息 / 风险 / 股权 / 知识产权 (旷湖) |
+| 企查查 Qichacha | 🏢 official remote MCP ×10 — `https://agent.qcc.com/mcp/{company,risk,ipr,operation,history,executive,regulation,case,tender,document}/stream` ([guide](https://agent.qcc.com/guide)) | 工商 / 风险 / 知识产权 / 司法 / 招投标; Bearer API key or OAuth, billed per call |
+| 天眼查 Tianyancha | 🏢 official remote MCP — `https://mcp.tianyancha.com/mcp` · 🏢 [`tyc-tech/tyc-cli`](https://github.com/tyc-tech/tyc-cli) ⭐19 (CLI client for it) | 工商 / 股东 / 风险 / 诉讼; OAuth |
+| 快递100 Kuaidi100 | 🏢 [`kuaidi100-api/kuaidi100-MCP`](https://github.com/kuaidi100-api/kuaidi100-MCP) ⭐14 | parcel tracking across carriers (read-only); enterprise API account — ⚠️ the key travels in the query string and can surface in error messages |
+| PushPlus 推送加 | 🏢 [`pushplus/pushplus-MCP-Server-TypeScript`](https://github.com/pushplus/pushplus-MCP-Server-TypeScript) ⭐3 | push to 微信 / email / app — ⚠️ also exposes account tools (AccessKey, token minting, points) with no confirmation; give the agent only what it needs |
+| 小牛翻译 NiuTrans | 🏢 [`NiuTrans/MCP-TextTranslation`](https://github.com/NiuTrans/MCP-TextTranslation) ⭐8 | text translation, 380+ languages |
 | 快递 / 工商 / 发票 / 三要素 | 👥 [`FLYKID/THMCP`](https://github.com/FLYKID/THMCP) ⭐7 | 瞳虎 — logistics, biz-reg, invoice, ID verify |
 | 中国法定节假日 / 调休 | 👥 [`zackchewa/china-mcp-servers`](https://github.com/zackchewa/china-mcp-servers) | 某天是否放假/调休上班 + 整年假期表；零配置无需凭证 — ⚠️ repo archived, unmaintained |
 | Server酱 (微信推送) | 👥 [`zackchewa/china-mcp-servers`](https://github.com/zackchewa/china-mcp-servers) | 主动推送通知到你自己的微信；SendKey 免费自助 — ⚠️ repo archived, unmaintained |
@@ -243,11 +255,11 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 
 ## 🧩 官方 API，暂无 MCP Server · Official API, no MCP server (yet)
 
-91 widely-used Chinese services that ship a documented first-party API, but for which we could not find a maintained MCP server while compiling this list (last re-swept 2026-09-02). That is the actual shape of the gap: the ecosystem's problem is not a missing index, it is missing servers.
+78 widely-used Chinese services that ship a documented first-party API, but for which we could not find a maintained MCP server while compiling this list (last re-swept 2026-10-10). That is the actual shape of the gap: the ecosystem's problem is not a missing index, it is missing servers.
 
-91 个国内常用服务：官方 API 齐全，但截至 2026-09-02 我们没能找到可用且有人维护的 MCP Server。列在这里有两个用处 —— 一是告诉你这条路目前得自己写，二是每一行都是一个可以动手的项目。
+78 个国内常用服务：官方 API 齐全，但截至 2026-10-10 我们没能找到可用且有人维护的 MCP Server。列在这里有两个用处 —— 一是告诉你这条路目前得自己写，二是每一行都是一个可以动手的项目。
 
-> ✅ Seven rows have graduated so far. 节假日, Server酱 and 百度翻译 got servers in [`china-mcp-servers`](https://github.com/zackchewa/china-mcp-servers); the 2026-09-02 re-sweep found servers that already existed for four more — MasterGo (🏢 official, ⭐283), wolai, GitCode and Bark — and moved them up into the main list too.
+> ✅ Twenty rows have graduated so far. 节假日, Server酱 and 百度翻译 got servers in [`china-mcp-servers`](https://github.com/zackchewa/china-mcp-servers); the 2026-09-02 re-sweep found servers that already existed for four more — MasterGo (🏢 official, ⭐283), wolai, GitCode and Bark — and moved them up into the main list too. The 2026-10-10 re-sweep moved thirteen more up: 企查查, 天眼查, 金数据, 华宇元典, 快递100, PushPlus, 小牛翻译, 百度网盘 and 融云 now ship official servers, and maintained community servers turned up for 企业微信群机器人, 印象笔记, flomo and TAPD. Every repo had its source read for security first, and each hosted endpoint was matched against the vendor's own docs; warnings are inline.
 >
 > 🛠️ **Build one and it moves up.** Ship an MCP server for any row here, open a PR, and the row graduates into the main list above with your repo on it. Know of one we missed? Same thing — PR it, we'd rather be corrected than tidy.
 >
@@ -258,11 +270,9 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 | App | 官方 API 文档 · Official docs | 能力 · What an agent can do |
 |---|---|---|
 | 钉钉群机器人 | 🌐 [开发者文档](https://open.dingtalk.com/document/dingstart/custom-bot-creation-and-installation) | 向钉钉群推送文本/Markdown（官方自定义机器人） |
-| 企业微信群机器人 | 🌐 [开发者文档](https://intl.cloud.tencent.com/zh/document/product/1254/78645) | 向企业微信群推送文本/Markdown（官方群机器人） |
 | 企业微信自建应用 | 🌐 [开发者文档](https://developer.work.weixin.qq.com/document/path/91039) | 通过企业自建应用向可见成员发送消息（官方 API） |
 | 飞书群机器人 | 🌐 [开发者文档](https://open.feishu.cn/document/ukTMukTMukTM/ucTM5YjL3ETO24yNxkjN) | 向飞书群推送文本/富文本（官方自定义机器人） |
 | WxPusher | 🌐 [开发者文档](https://wxpusher.zjiecode.com/docs/) | 向微信推送个人通知（官方 SPT 接口） |
-| PushPlus 推送加 | 🌐 [开发者文档](https://www.pushplus.plus/doc/guide/api.html) | 微信/邮件/App 多渠道通知（官方消息 Token） |
 | PushDeer | 🌐 [开发者文档](https://www.pushdeer.com/official.html) | 向自己的手机与 Mac 推送消息（官方在线版） |
 | 极光推送 | 🌐 [开发者文档](https://docs.jiguang.cn/jpush/server/push/server_overview) | 向指定 App 用户发送通知（JPush 官方服务端 API） |
 | 个推 | 🌐 [开发者文档](https://docs.getui.com/getui/server/rest_v2/standard/) | 向指定 App 客户端发送通知（官方 RestAPI V2） |
@@ -287,10 +297,7 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 
 | App | 官方 API 文档 · Official docs | 能力 · What an agent can do |
 |---|---|---|
-| 印象笔记 | 🌐 [开发者文档](https://app.yinxiang.com/api/DeveloperToken.action) | 笔记本/笔记搜索与读写（Developer Token） |
-| flomo 浮墨 | 🌐 [开发者文档](https://flomoapp.com/) | 快速记录到 flomo 笔记 |
 | 坚果云 | 🌐 [开发者文档](https://help.jianguoyun.com/) | 云盘文件管理（列目录/读写/上传，WebDAV） |
-| 百度网盘 | 🌐 [开发者文档](https://pan.baidu.com/union/doc) | 云盘文件管理（百度官方 Skill，支持 OpenClaw 与 Hermes） |
 | 夸克网盘 † | 🌐 [开发者文档](https://pan.quark.cn/open/v1/oauth/agent) | 文件搜索、上传下载、分享转存（官方开放 API + 官方运行包） |
 
 ### 📋 表单 / 低代码 / 项目管理 · Forms, Low-code & PM
@@ -298,12 +305,10 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 | App | 官方 API 文档 · Official docs | 能力 · What an agent can do |
 |---|---|---|
 | 维格表 | 🌐 [开发者文档](https://vika.cn/developers) | 查询与写入维格表记录（官方 Fusion API） |
-| 金数据 | 🌐 [开发者文档](https://open.jinshuju.net/api_v1/) | 读取与写入表单数据（企业版官方 API） |
 | 明道云 † | 🌐 [开发者文档](https://help.mingdao.com/api/introduction/) | 查询与写入 HAP 工作表记录（官方应用 API） |
 | 轻流 Qingflow † | 🌐 [开发者文档](https://help-center.qingflow.com/docs/building-guides/qogxhcuwxvn19f2m/) | 查询应用、表单字段与业务数据（公有云 OpenAPI） |
 | 伙伴云 Huoban | 🌐 [开发者文档](https://openapi.huoban.com/doc-661256) | 查询工作区、表格字段与业务记录（官方 OpenAPI，需付费企业版） |
 | 钉钉宜搭 | 🌐 [开发者文档](https://dingtalk-yida.github.io/developer-site/docs/api/serverAPI/) | 查询宜搭表单实例（专业版官方 API） |
-| TAPD | 🌐 [开发者文档](https://open.tapd.cn/document/api-doc/) | 项目/需求/缺陷查询（腾讯官方 OpenAPI，只读） |
 | PingCode | 🌐 [开发者文档](https://pingcode.apifox.cn/api-101722138) | 查询研发项目详情（官方开放 API） |
 | Worktile | 🌐 [开发者文档](https://worktile.apifox.cn/api-101771895) | 分页查询项目任务（官方开放 API） |
 | Teambition | 🌐 [开发者文档](https://open.teambition.com/docs/documents/5d89a927a55fbd000120c30c) | 分页查询组织成员（官方企业应用 API） |
@@ -341,7 +346,6 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 | App | 官方 API 文档 · Official docs | 能力 · What an agent can do |
 |---|---|---|
 | 快递鸟 | 🌐 [开发者文档](https://www.kdniao.com/) | 快递单号物流轨迹查询 |
-| 快递100 | 🌐 [开发者文档](https://api.kuaidi100.com/manager/page/myinfo/enterprise) | Beta · 需企业版 API 账户；多快递公司实时物流查询 |
 | 顺丰速运 † | 🌐 [开发者文档](https://open.sf-express.com/) | Beta · 需顺丰月结企业客户及生产凭证；运单查询（只读） |
 
 ### 📈 金融 / 数据 / 企业信息 · Finance, Data & Company info
@@ -350,8 +354,6 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 |---|---|---|
 | 国信证券 | 🌐 [开发者文档](https://www.guosen.com.cn/gs/xxskills) | A股实时行情/K线/财务/选股（官方数据） |
 | 老虎证券 | 🌐 [开发者文档](https://quant.itigerup.com/openapi/en/python/quickStart/prepare.html) | 券商持仓与资产查询（只读） |
-| 天眼查 | 🌐 [开发者文档](https://open.tianyancha.com/) | 企业工商/股东/风险/诉讼查询 |
-| 企查查 | 🌐 [开发者文档](https://openapi.qcc.com/) | 企业检索（官方 API，按次计费） |
 | AllTick | 🌐 [开发者文档](https://alltick.co/) | 全球行情（股票/外汇/加密/商品） |
 | 麦蕊智数 | 🌐 [开发者文档](https://mairuiapi.com/getlicence) | A股实时行情/K线/技术指标（MACD/KDJ/BOLL） |
 | 聚合数据 | 🌐 [开发者文档](https://www.juhe.cn/) | 星座运势/彩票开奖/身份证核验 |
@@ -361,7 +363,6 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 
 | App | 官方 API 文档 · Official docs | 能力 · What an agent can do |
 |---|---|---|
-| 华宇元典 | 🌐 [开发者文档](https://open.chineselaw.com/) | 法律法规与案例检索 |
 
 ### 🌦️ 天气 · Weather
 
@@ -376,7 +377,6 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 | 有道翻译 | 🌐 [开发者文档](https://ai.youdao.com/) | 文本翻译（有道智云） |
 | 腾讯翻译 | 🌐 [开发者文档](https://console.cloud.tencent.com/cam/capi) | 文本翻译（腾讯机器翻译） |
 | 讯飞翻译 | 🌐 [开发者文档](https://console.xfyun.cn/) | 文本翻译（讯飞机器翻译） |
-| 小牛翻译 | 🌐 [开发者文档](https://niutrans.com/) | 文本翻译（380+ 语种） |
 | 百度OCR | 🌐 [开发者文档](https://console.bce.baidu.com/) | 图片文字识别（OCR） |
 
 ### 💻 DevTools / 身份 · DevTools & Identity
@@ -407,7 +407,6 @@ The deepest official coverage in the whole ecosystem — Alibaba Cloud alone shi
 |---|---|---|
 | 声网 Agora † | 🌐 [开发者文档](https://doc.shengwang.cn/archive/0.0.9/faq/integration-issues/restful-authentication) | 查询开发者项目列表（官方 RESTful API） |
 | 环信 | 🌐 [开发者文档](https://doc.easemob.com/document/server-side/enable_and_configure_IM.html) | 查询即时通讯用户资料（官方服务端 REST API） |
-| 融云 | 🌐 [开发者文档](https://webqa.rongcloud.net/static/documentation/docs/build/platform-chat-api/auth.html) | 查询 IM 用户资料（官方服务端 API） |
 | 网易云信 | 🌐 [开发者文档](https://doc.commsease.com/messaging/server-apis/TE0ODUzMDI?platform=server) | 批量查询 IM 用户资料（官方服务端 API） |
 | 涂鸦智能 † | 🌐 [开发者文档](https://developer.tuya.com/cn/docs/cloud/) | 查询状态并控制已绑定的智能设备（官方云 API） |
 | 萤石云 | 🌐 [开发者文档](https://open.ys7.com/) | 查询已绑定智能设备信息与在线状态（官方开放 API） |
